@@ -22,6 +22,7 @@
 		<module>models/spring-ai-huggingface</module>
 		<module>models/spring-ai-ollama</module>
 		<module>models/spring-ai-openai</module>
+		<module>models/spring-ai-zhipu-ai</module>
 		<module>models/spring-ai-stability-ai</module>
 		<module>models/spring-ai-mistral-ai</module>
 		<module>models/spring-ai-vertex-ai-palm2</module>
@@ -31,6 +32,7 @@
 		<module>spring-ai-test</module>
 		<module>spring-ai-spring-boot-autoconfigure</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-openai</module>
+		<module>spring-ai-spring-boot-starters/spring-ai-starter-zhipu-ai</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-azure-openai</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-ollama</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-transformers</module>
