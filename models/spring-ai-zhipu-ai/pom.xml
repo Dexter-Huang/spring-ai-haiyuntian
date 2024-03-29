@@ -65,6 +65,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>cn.bigmodel.openapi</groupId>
+			<artifactId>oapi-java-sdk</artifactId>
+			<version>${zhipu.sdk.version}</version>
+		</dependency>
 
 		<!-- test dependencies -->
 		<dependency>
