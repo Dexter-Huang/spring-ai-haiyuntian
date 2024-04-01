@@ -23,6 +23,7 @@
 		<module>models/spring-ai-ollama</module>
 		<module>models/spring-ai-openai</module>
 		<module>models/spring-ai-zhipu-ai</module>
+		<module>models/spring-ai-kimi-ai</module>
 		<module>models/spring-ai-stability-ai</module>
 		<module>models/spring-ai-mistral-ai</module>
 		<module>models/spring-ai-vertex-ai-palm2</module>
@@ -33,6 +34,7 @@
 		<module>spring-ai-spring-boot-autoconfigure</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-openai</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-zhipu-ai</module>
+		<module>spring-ai-spring-boot-starters/spring-ai-starter-kimi-ai</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-azure-openai</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-ollama</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-transformers</module>
@@ -72,7 +74,7 @@
 		<module>vector-stores/spring-ai-elasticsearch-store</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-watsonx-ai</module>
 		<module>spring-ai-spring-boot-starters/spring-ai-starter-elasticsearch-store</module>
-	</modules>
+    </modules>
 
 	<organization>
 		<name>VMware Inc.</name>

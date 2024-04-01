@@ -1,5 +1,7 @@
 package org.springframework.ai.zhipu;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.model.function.FunctionCallback;
 import org.springframework.ai.model.function.FunctionCallingOptions;
@@ -16,19 +18,34 @@ import java.util.Set;
  * @date 2024/3/29 17:16
  */
 public class ZhiPuChatOptions implements FunctionCallingOptions, ChatOptions {
+    private String model;
+    private List<com.zhipu.oapi.service.v4.model.ChatMessage> messages;
+    private @JsonProperty("request_id") String requestId;
+    private @JsonProperty("do_sample") Boolean doSample;
+    private Boolean stream;
+    private Float temperature;
+    private @JsonProperty("top_p") Float topP;
+    private @JsonProperty("max_tokens") Integer maxTokens;
+    private List<String> stop;
+    private @JsonProperty("sensitive_word_check") com.zhipu.oapi.service.v4.model.SensitiveWordCheckRequest sensitiveWordCheck;
+    private List<com.zhipu.oapi.service.v4.model.ChatTool> tools;
+    private @JsonProperty("tool_choice") Object toolChoice;
+    private @JsonProperty("invoke_method") String invokeMethod;
+
     @Override
     public Float getTemperature() {
-        return null;
+        return this.temperature;
     }
 
     @Override
     public Float getTopP() {
-        return null;
+        return this.topP;
     }
 
     @Override
+    @JsonIgnore
     public Integer getTopK() {
-        return null;
+        throw new UnsupportedOperationException("Unimplemented method 'getTopK'");
     }
 
     @Override
@@ -72,41 +89,6 @@ public class ZhiPuChatOptions implements FunctionCallingOptions, ChatOptions {
             return this;
         }
 
-        public Builder withFrequencyPenalty(Float frequencyPenalty) {
-            this.options.frequencyPenalty = frequencyPenalty;
-            return this;
-        }
-
-        public Builder withLogitBias(Map<String, Integer> logitBias) {
-            this.options.logitBias = logitBias;
-            return this;
-        }
-
-        public Builder withMaxTokens(Integer maxTokens) {
-            this.options.maxTokens = maxTokens;
-            return this;
-        }
-
-        public Builder withN(Integer n) {
-            this.options.n = n;
-            return this;
-        }
-
-        public Builder withPresencePenalty(Float presencePenalty) {
-            this.options.presencePenalty = presencePenalty;
-            return this;
-        }
-
-        public Builder withResponseFormat(ResponseFormat responseFormat) {
-            this.options.responseFormat = responseFormat;
-            return this;
-        }
-
-        public Builder withSeed(Integer seed) {
-            this.options.seed = seed;
-            return this;
-        }
-
         public Builder withStop(List<String> stop) {
             this.options.stop = stop;
             return this;
@@ -122,35 +104,13 @@ public class ZhiPuChatOptions implements FunctionCallingOptions, ChatOptions {
             return this;
         }
 
-        public Builder withTools(List<FunctionTool> tools) {
+        public Builder withTools(List<com.zhipu.oapi.service.v4.model.ChatTool> tools) {
             this.options.tools = tools;
             return this;
         }
 
         public Builder withToolChoice(String toolChoice) {
             this.options.toolChoice = toolChoice;
-            return this;
-        }
-
-        public Builder withUser(String user) {
-            this.options.user = user;
-            return this;
-        }
-
-        public Builder withFunctionCallbacks(List<FunctionCallback> functionCallbacks) {
-            this.options.functionCallbacks = functionCallbacks;
-            return this;
-        }
-
-        public Builder withFunctions(Set<String> functionNames) {
-            Assert.notNull(functionNames, "Function names must not be null");
-            this.options.functions = functionNames;
-            return this;
-        }
-
-        public Builder withFunction(String functionName) {
-            Assert.hasText(functionName, "Function name must not be empty");
-            this.options.functions.add(functionName);
             return this;
         }
 

@@ -34,6 +34,7 @@ public class ZhiPuChatClient extends
     public final RetryTemplate retryTemplate;
     private final ZhiPuApi zhiPuApi;
 
+
     public ZhiPuChatClient(ZhiPuApi openAiApi) {
         this(openAiApi,
                 ZhiPuChatOptions.builder().withModel(ZhiPuApi.DEFAULT_CHAT_MODEL).withTemperature(0.7f).build());

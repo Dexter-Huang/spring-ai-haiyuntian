@@ -26,25 +26,25 @@ public class ZhiPuApi {
         this(ApiUtils.DEFAULT_BASE_URL, zhiPuAiToken);
     }
 
-    public ZhiPuApi(String baseUrl, String zhiPuAiToken) {
-        this(baseUrl, zhiPuAiToken, RestClient.builder());
+    public ZhiPuApi(String baseUrl, String zhiPuToken) {
+        this(baseUrl, zhiPuToken, RestClient.builder());
     }
 
     public ZhiPuApi(String baseUrl, String zhiPuAiToken, RestClient.Builder restClientBuilder) {
         this(baseUrl, zhiPuAiToken, restClientBuilder, RetryUtils.DEFAULT_RESPONSE_ERROR_HANDLER);
     }
 
-    public ZhiPuApi(String baseUrl, String zhiPuAiToken, RestClient.Builder restClientBuilder, ResponseErrorHandler responseErrorHandler) {
+    public ZhiPuApi(String baseUrl, String zhiPuToken, RestClient.Builder restClientBuilder, ResponseErrorHandler responseErrorHandler) {
 
         this.restClient = restClientBuilder
                 .baseUrl(baseUrl)
-                .defaultHeaders(ApiUtils.getJsonContentHeaders(zhiPuAiToken))
+                .defaultHeaders(ApiUtils.getJsonContentHeaders(zhiPuToken))
                 .defaultStatusHandler(responseErrorHandler)
                 .build();
 
         this.webClient = WebClient.builder()
                 .baseUrl(baseUrl)
-                .defaultHeaders(ApiUtils.getJsonContentHeaders(zhiPuAiToken))
+                .defaultHeaders(ApiUtils.getJsonContentHeaders(zhiPuToken))
                 .build();
     }
 
